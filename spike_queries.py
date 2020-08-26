@@ -36,7 +36,7 @@ def perform_query(query: str, dataset_name: str = "pubmed", num_results: int = 1
         url, base_url = WIKIPEDIA_URL, WIKIPEDIA_BASE_URL
    
    response = requests.post(url, data = query, headers = headers)
-   print(query)
+
    tsv_url = get_tsv_url(response, results_limit = num_results, base_url = base_url)
    df = pd.read_csv(tsv_url, sep = "\t")
    if remove_duplicates:
